@@ -1,0 +1,69 @@
+{% extends "baseboard.html" %}
+{% load static %}
+{% block content %}  
+              <dl class="board_view">
+		            <dt>
+			            <strong>제목제목제목제목제목</strong>
+			            <span class="date">2022.10.05</span>
+		            </dt>
+		            <dd>		
+			            <div class="title_area">
+				            <span class="title">분실
+					            <span class="tline">교내셔틀 </span>
+                      <span class="tline">2022-10-05 </span>
+				            </span>
+                    <span class="tooltip_comm ico_tooltip on">
+                      <a href="javascript:;" class="ico_comm">첨부파일<span class="fc_b">( 1 )</span></a>
+                      <span class="down_tooltip" style="width:400px;">
+                        <a href="#" title="펜슬.jpg다운로드">펜슬.jpg</a>          
+                        <a href="javascript:;" class="btn_comm btn_close">CLOSE TOOLTIP</a>
+                      </span> 
+                    </span>
+							    </div>
+                  <div class="cont_area">
+				            <p>내용내용내용내용</p>
+                    <p>내용내용내용내용</p>
+                    <p>내용내용내용내용</p>
+                    <p>내용내용내용내용</p>
+                    <p>내용내용내용내용</p>
+                    <p>내용내용내용내용</p>
+                    <p>내용내용내용내용</p>
+                    <p>내용내용내용내용</p>
+			            </div>		
+		            </dd>
+	            </dl>
+              <div class="campus">
+                <div class="coment_wrap">
+                  <p>댓글<span>(0)</span></p>
+                  <div class="coment_inner">
+                    <form class="form_coment" action="">
+                      <fieldset>
+                        <input type="hidden" name="article_no" value="209944">
+                        <input type="hidden" name="secure_key" value="">
+                        <span>
+                          <textarea id="comment" title="댓글 쓰기" name="detail_text" class="tf_conts textarea" cols="100" rows="3" placeholder="로그인이 필요합니다."></textarea>
+                        </span>
+                        <button type="submit" title="검색" class="btn_comments">등록</button>
+                      </fieldset>
+                    </form>
+                  </div>
+                  <!--  댓글 리스트  -->
+                  <ul class="coment_list">
+                    <li id="205">
+                      <span class="title">덧글1<span class="date">2022.07.01</span></span>
+                      <span class="detail_text">ㅁㄴㅇㅁㄴㅇ</span>
+                    </li>
+                    <li id="205">
+                      <span class="title">덧글2<span class="date">2022.07.05</span></span>
+                      <span class="detail_text">ㅁㄴㅇㅁㄴㅇ</span>
+                    </li>
+                    <li id="205">
+                      <span class="title">덧글3<span class="date">2022.07.06</span></span>
+                      <span class="detail_text">ㅁㄴㅇㅁㄴㅇ</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+{% endblock %}
+{% block script %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "baseboard.html" %}
+{% load static %}
+{% block content %}  
+              <dl class="board_view">
+		            <dt>
+			            <strong>{{ object.title }}</strong>
+			            <span class="date">{{ object.create_date|date:'Y-m-d' }}</span>
+		            </dt>
+		            <dd>		
+			            <div class="title_area">
+				            <span class="title">{{ object.cat }}
+					            <span class="tline">{{ object.author }} </span>
+                      <span class="tline">{{ object.create_date|date:'Y-m-d' }} </span>
+				            </span>
+							    </div>
+                  <div class="cont_area">
+				            <p>{{ object.content|linebreaksbr }}</p>
+			            </div>		
+		            </dd>
+	            </dl>
+{% endblock %}
+{% block script %}
+{% endblock %}

@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:mainline-alpine
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - './nginx/conf:/etc/nginx/conf.d'
+      - './nginx/static:/var/www/html/static'
+
+  django:
+    image: django:v2
+    container_name: django
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./django:/app
+    command: >
+      sh -c "gunicorn --bind 0.0.0.0:8000 --timeout 90 config.wsgi:application"
+
+networks:
+  default:
+    external:
+      name: web-server
