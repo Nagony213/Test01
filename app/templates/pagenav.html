@@ -1,0 +1,97 @@
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>&nbsp;</h2>
+          <ol>
+            <li><a href="/">대학교 메인</a></li>
+            {% if request.resolver_match.view_name == 'Main:greeting' %}
+            <li>대학교 소개</li>
+            <li>인사말</li>
+            {% elif request.resolver_match.view_name == 'Main:gethere' %}
+            <li>대학교 소개</li>
+            <li>오시는길</li>
+            {% elif request.resolver_match.view_name == 'Main:schedule' %}
+            <li>학사정보</li>
+            <li>학사일정</li>
+            {% elif request.resolver_match.view_name == 'Main:graduate' %}
+            <li>입학안내</li>
+            <li>대학교</li>
+            {% elif request.resolver_match.view_name == 'Main:master' %}
+            <li>입학안내</li>
+            <li>대학원</li>
+            {% elif request.resolver_match.view_name == 'Main:lifelong' %}
+            <li>입학안내</li>
+            <li>평생교육원</li>
+            {% elif request.path|slice:":9" == '/board/no' %}
+            <li>커뮤니티</li>
+            <li>공지사항</li>
+            {% elif request.path|slice:":9" == '/board/ne' %}
+            <li>커뮤니티</li>
+            <li>KG대학뉴스</li>
+            {% elif request.path|slice:":9" == '/board/fr' %}
+            <li>커뮤니티</li>
+            <li>자유게시판</li>
+            {% endif %}
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-2">
+            <div class="intromenu">
+              <h2>
+                {% if request.resolver_match.view_name == 'Main:greeting' or request.resolver_match.view_name == 'Main:gethere' %}
+                대학교 소개
+                {% elif request.resolver_match.view_name == 'Main:schedule' %}
+                학사정보
+                {% elif request.resolver_match.view_name == 'Main:graduate' or request.resolver_match.view_name == 'Main:master' or request.resolver_match.view_name == 'Main:lifelong' %}
+                입학안내
+                {% elif request.resolver_match.app_name == 'board' %}
+                커뮤니티
+                {% endif %}
+                <span class="ir"></span></h2>
+              <ul>
+                {% if request.resolver_match.view_name == 'Main:greeting' or request.resolver_match.view_name == 'Main:gethere' %}
+                <li class=""><a href="/greeting">인사말<span></span></a></li>
+                <li class=""><a href="/gethere">오시는길<span></span></a></li>
+                {% elif request.resolver_match.view_name == 'Main:schedule' %}
+                <li class=""><a href="/schedule">학사일정<span></span></a></li>
+                {% elif request.resolver_match.view_name == 'Main:graduate' or request.resolver_match.view_name == 'Main:master' or request.resolver_match.view_name == 'Main:lifelong' %}
+                <li class=""><a href="/graduate">대학교<span></span></a></li>
+                <li class=""><a href="/master">대학원<span></span></a></li>
+                <li class=""><a href="/lifelong">평생교육원<span></span></a></li>
+                {% elif request.resolver_match.app_name == 'board' %}
+                <li class=""><a href="/board/notice">공지사항<span></span></a></li>
+                <li class=""><a href="/board/news">KG대학뉴스<span></span></a></li>
+                <li class=""><a href="/board/free">자유게시판<span></span></a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-10">
+            <div class="cntmain">
+              <H1>
+                {% if request.resolver_match.view_name == 'Main:greeting' %}
+                인사말
+                {% elif request.resolver_match.view_name == 'Main:gethere' %}
+                오시는길
+                {% elif request.resolver_match.view_name == 'Main:schedule' %}
+                학사일정
+                {% elif request.resolver_match.view_name == 'Main:graduate' %}
+                대학교
+                {% elif request.resolver_match.view_name == 'Main:master' %}
+                대학원
+                {% elif request.resolver_match.view_name == 'Main:lifelong' %}
+                평생교육원
+                {% elif request.path|slice:":9" == '/board/no' %}
+                공지사항
+                {% elif request.path|slice:":9" == '/board/ne' %}
+                KG대학뉴스
+                {% elif request.path|slice:":9" == '/board/fr' %}
+                자유게시판 
+                {% endif %}
+              </H1>

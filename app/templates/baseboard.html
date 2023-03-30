@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% include 'head.html' %}
+</head>
+<body>
+<div id="content-warp">
+{% include 'nav.html' %}
+  <main id="main">
+{% include 'pagenav.html' %}
+              <div class="cntpadding"></div>
+{% block content %}
+{% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->  
+  </main><!-- End #main -->
+</div>
+{% include 'footer.html' %}
+{% block script %}
+{% endblock %}
+</body>
+</html>

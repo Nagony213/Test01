@@ -1,0 +1,54 @@
+{% extends "baseboard.html" %}
+{% load static %}
+{% block content %}  
+              <div class="list_notice">
+                <ul>
+                  {% if request.get_full_path == '/board/notice' %}
+                  <li>※ 학사 공지사항 게시판 입니다. </li>
+                  <li>※ 문의사항은 각 공지 부처 사무실로 연락해 주세요.  </li>
+                  {% elif request.get_full_path == '/board/news' %}
+                  <li>※ KG대학교 뉴스 게시판 입니다. </li>
+                  <li>※ KG대학교의 최신 소식을 확인해보세요.  </li>
+                  {% elif request.get_full_path == '/board/free' %}
+                  <li>※ 자유 게시판 입니다. </li>
+                  <li>※ 매너에 맞는 글과 덧글을 작성합시다.  </li>
+                  {% endif %}  
+                </ul>              
+              </div>
+              <ul class="board_list">
+                {% for board in object_list %}
+                <li>
+                  <a href="{{ board.get_absolute_url }}">
+                    <strong>{{ board.title }}</strong>
+                    <span class="title">{{ board.cat }}
+                      <span class="tline">{{ board.author }} </span>
+                      <span class="tline">일자 : {{ board.create_date|date:'Y-m-d' }}</span>
+                    </span>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>              
+              <div class="paging_comm">
+                {% if page_obj.paginator.count >= page_obj.paginator.per_page %}
+                  {% if page_obj.has_previous %}
+                  <a href="?page=1" class="ico_comm btn_fst">처음 페이지</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="ico_comm btn_prev">이전 페이지</a>
+                  {% endif %}
+                  {% for page_number in page_obj.paginator.page_range %}
+                  {% if page_number >= page_obj.number|add:-3 and page_number <= page_obj.number|add:3 %}
+                    {% if page_number == page_obj.number %}
+                <a href="?page={{ page_number }}" class="link_page on" title="선택됨">{{ page_number }}</a>
+                    {% else %}
+                <a href="?page={{ page_number }}" class="link_page">{{ page_number }}</a>
+                    {% endif %}
+                  {% endif %}
+                  {% endfor %}
+                  {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="ico_comm btn_next">다음 페이지</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="ico_comm btn_lst">끝 페이지</a>
+                  {% endif %}
+                {% endif %}
+              </div>
+{% endblock %}
+{% block script %}
+{% endblock %}
