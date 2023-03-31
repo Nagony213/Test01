@@ -7,8 +7,8 @@ pipeline {
     IMAGE_REPO_NAME="kpet-repo" // ECR에 존재하는 레포지토리 이름
     IMAGE_TAG="latest"
     REPOSITORY_URI="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
-    AWS_CREDENTIALS = "{aws_cre_id}" // Jenkins에서 지정한 아마존 자격증명 ID
-    GIT_CREDENTIAL_ID = "{git_cre_id}" // Jenkins에서 지정한 깃허브 자격증명 ID
+    AWS_CREDENTIALS = "aws_cre_id" // Jenkins에서 지정한 아마존 자격증명 ID
+    GIT_CREDENTIAL_ID = "git_cre_id" // Jenkins에서 지정한 깃허브 자격증명 ID
     DEPLOY_ACCOUNT = "deploy_user" // IAM에서 생성한 유저명
     DEPLOY_ROLE = "arn:aws:iam::112255298705:user/deploy_user" // IAM에서 생성한 역할의 arn id
     //CLUSTER_NAME = '{ECS Cluster Name}' // ECS 클러스터 이름
